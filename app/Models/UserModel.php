@@ -44,6 +44,9 @@ class UserModel extends Model
         $this->insert($data);
     }
 
+    public function getUser(){
+        return $this->join('kelas', 'user.id_kelas=kelas.id')->findAll();
+    }
 }
 
 
