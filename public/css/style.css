@@ -4,6 +4,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 70vh; /* Mengisi seluruh ketinggian viewport */
+    /* background-image: linear-gradient(to right, #4682B4, #00FFFF, #00FA9A); */
+
 }
 
 table tr:hover {
