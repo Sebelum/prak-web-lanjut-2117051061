@@ -30,6 +30,7 @@
                         <td><?= $user['npm'] ?></td>
                         <td><?= $user['nama_kelas'] ?></td>
                         <td>
+                            <a class="btn btn-success" href="<?= base_url('user/'.$user['id']) ?>">Detail</a>
                             <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
                             <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
                         </td>
