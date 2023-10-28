@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <label for="nama">Name:</label>
-            <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama">
+            <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="ex. myshel">
             <div class="invalid-feedback">
                 <?= $validation->getError('nama'); ?>
             </div>

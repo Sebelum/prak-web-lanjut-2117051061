@@ -1,44 +1,41 @@
 <?= $this->extend('layouts/app'); ?>
 
 <?= $this->section('content') ?>
-    <div class="container" 
-    style="margin-top: 55px; 
-    width: 70%; 
-    height: 450px; 
-    padding-top: 50px; 
-    padding-bottom: 50px;">
-    
-    <h1 colspan="5"  >List User</h1><br>
+<div class="container" style="margin-top: 55px; width: 70%; height: 450px; padding-top: 50px; padding-bottom: 50px;">
+
+    <h1>List User</h1><br>
+    <a class="btn btn-primary" href="<?= base_url('/user/create') ?>">Add Data</a>
 
     <table class="table table-bordered">
-            <thead style="background-color: rgba(122, 219, 143, 0.836)">      
+        <thead style="background-color: rgba(122, 219, 143, 0.836)">
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>NPM</th>
+                <th>Kelas</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user) : ?>
                 <tr>
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>NPM</th>
-                    <th>Kelas</th>
-                    <th>Aksi</th>
+                    <td><?= $user['id'] ?></td>
+                    <td><?= $user['nama'] ?></td>
+                    <td><?= $user['npm'] ?></td>
+                    <td><?= $user['nama_kelas'] ?></td>
+                    <td>
+                        <a class="btn btn-success" href="<?= base_url('user/' . $user['id']) ?>">Detail</a>
+                        <a class="btn btn-warning" href="<?= base_url('user/' . $user['id'] . '/edit') ?>">Edit</a>
+                        <form action="<?= base_url('user/' . $user['id']) ?>" method="post" style="display: inline-block;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <?= csrf_field() ?>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    foreach($users as $user){
-                ?>
-                    <tr>
-                        <td><?= $user['id'] ?></td>
-                        <td><?= $user['nama'] ?></td>
-                        <td><?= $user['npm'] ?></td>
-                        <td><?= $user['nama_kelas'] ?></td>
-                        <td>
-                            <a class="btn btn-success" href="<?= base_url('user/'.$user['id']) ?>">Detail</a>
-                            <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
-                        </td>
-                    </tr>
-                <?php
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <br>
+</div>
 <?= $this->endSection() ?>
