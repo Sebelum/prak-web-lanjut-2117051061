@@ -1,0 +1,40 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Mengisi seluruh ketinggian viewport */
+    /* background-image: linear-gradient(to right, #4682B4, #00FFFF, #00FA9A); */
+
+}
+
+table tr:hover {
+    background-color: rgba(255, 68, 0, 0.527); /* Ganti warna latar belakang saat dihover sesuai kebutuhan */
+    cursor: pointer; /* Mengubah kursor saat dihover */
+}
+
+img{
+
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 0 -10px;
+    border-radius: 50%;
+    border: 2px solid orangered;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+}
+
+
+td {
+    /* padding-top: 45px; */
+    border: 2px solid orangered; /* Garis sekeliling sel-sel */
+    padding: 8px;
+    width: auto;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+#kelas option {
+    font-style: black;
+}
