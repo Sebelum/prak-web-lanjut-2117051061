@@ -24,12 +24,15 @@ class KelasController extends BaseController
         return view('list_kelas', $data);    
     }
 
-    public function create()
-    {
-
-        $data = [
-            'title' => 'Create Kelas',
+    public function create(){
+        
+        $kelas = $this->kelasModel->getKelas();
+       
+        $data =[
+            'title'=> 'Create Kelas',
+            'kelas' => $kelas,
             'validation' => \Config\Services::validation()
+
         ];
 
         return view('create_kelas', $data);
@@ -37,22 +40,18 @@ class KelasController extends BaseController
 
 
     public function store(){
+        if(!$this->validate([
+            'nama_kelas' => 'required|alpha_space'
+        ]))
 
-        if (!$this->validate([
-            'nama_kelas' => 'required|alpha_space',
-        ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/kelas/create')->withInput()->with('validation', $validation);
-        }
-
-        $this->userModel->saveUser([
-            'nama_kelas' => $this->request->getVar('nama_kelas'),
-        ]);
-
-
-        return redirect()->to('/kelas');
-
+        return redirect()->back()->withInput();
+        $data=[
+            'nama_kelas'=>$this->request->getVar('nama_kelas'),
+        ];
+        $this ->kelasModel->saveKelas($data);
+        return redirect()->to ('/kelas');
     }
+    
     public function edit($id){
 
         $kelas = $this->kelasModel->getKelas($id);
