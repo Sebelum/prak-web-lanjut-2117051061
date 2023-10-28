@@ -6,13 +6,13 @@
     
         <table>
             <tr>
-                <td>Nama : <?= $user['nama'] ?></td>
+                <td style="color: white;">Nama : <?= $user['nama'] ?></td>
             </tr>
             <tr>
-                <td>Kelas : <?= $user['nama_kelas'] ?></td>
+                <td style="color: white;">Kelas : <?= $user['nama_kelas'] ?></td>
             </tr>        
             <tr>
-                <td>Npm : <?= $user['npm'] ?></td>
+                <td style="color: white;">Npm : <?= $user['npm'] ?></td>
             </tr>
         </table>
         
