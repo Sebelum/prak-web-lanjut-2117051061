@@ -39,7 +39,27 @@ class KelasModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getKelas(){
+    public function getKelas($id = null){
+        if($id != null){
+            return $this->find($id);
+        }
+
         return $this->findAll();
+    }
+
+    public function saveKelas($data){
+        return $this->insert($data);
+    }
+
+    public function updateKelas($data, $id){
+
+        return $this->update($id, $data);
+
+    }
+
+    public function deleteKelas($id){
+
+        return $this->delete($id);
+
     }
 }
